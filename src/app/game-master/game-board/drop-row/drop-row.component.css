@@ -1,0 +1,26 @@
+.first{
+    border-top: 2px;
+    border-right: 1px;
+    border-bottom: 2px;
+    border-left: 2px;
+    border-color: #3535FF;
+    border-style: solid;
+}
+
+.last{
+    border-top: 2px;
+    border-right: 2px;
+    border-bottom: 2px;
+    border-left: 1px;
+    border-color: #3535FF;
+    border-style: solid;
+}
+
+.middle{
+    border-top: 2px;
+    border-right: 1px;
+    border-bottom: 2px;
+    border-left: 1px;
+    border-color: #3535FF;
+    border-style: solid;
+}

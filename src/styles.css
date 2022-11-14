@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+.boardTile{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(237, 237, 237);
+}
+
+.selectRowTile{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
+
+.selectRowTile:hover{
+    background-color: #3535ff82;
+    cursor: pointer;
+}

@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <app-dashboard (reset)="board.onReset(); onReset()" [player]="players[currentPlayer]"></app-dashboard>
+        </div>
+        <div class="col-12 position-relative">
+            <app-game-board #board (madeMove)="changePlayer($event)" (win)="winTitle($event)" [currentColor]="players[currentPlayer].color"></app-game-board>
+        </div>
+    </div>
+</div>      
