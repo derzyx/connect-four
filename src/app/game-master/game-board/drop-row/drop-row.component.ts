@@ -9,8 +9,11 @@ export class DropRowComponent implements OnInit {
 
   @Input() elId = '';
   @Input() borderClass = '';
+  @Input() innWidth = '';
 
   @Output() selectedCol = new EventEmitter<string>();
+
+  styles: Record<string, string> = {};
 
   constructor() { }
 

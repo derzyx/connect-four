@@ -1,20 +1,26 @@
-
-    <div class="row d-flex justify-content-center">
-        <p class="m-0 p-0 text-center">DROP TOKENS HERE</p>
-        <div *ngFor="let x of board; let i = index; let isFirst = first; let isLast = last" class="col-auto p-0">
-            <app-drop-row elId="drop-{{i}}" [borderClass]="setBorderClass(isFirst, isLast)" (selectedCol)="checkColumn($event)"></app-drop-row>
-        </div>
+<div class="row d-flex justify-content-center">
+    <div *ngFor="let x of board; let i = index; let isFirst = first; let isLast = last" class="col-auto p-0">
+        <app-drop-row 
+            elId="drop-{{i}}" 
+            [innWidth]="innWidth" 
+            [borderClass]="setBorderClass(isFirst, isLast)"
+            (selectedCol)="checkColumn($event)">
+        </app-drop-row>
     </div>
-    <div class="row d-flex justify-content-center">
-        <div style="height: 600px; width: 700px; position: absolute; z-index: 10;" class="m-0 p-0">
-            <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-            <svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 700 600" style="enable-background:new 0 0 700 600;" xml:space="preserve">
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="m-0 p-0 board">
+        <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 700 600" style="enable-background:new 0 0 700 600;" xml:space="preserve">
             <style type="text/css">
-                .st0{fill:#3535FF;}
+                .st0 {
+                    fill: #3535FF;
+                }
             </style>
             <g>
-                <path class="st0" d="M0,0v600h700V0H0z M50,596c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S75.4,596,50,596z M50,496
+                <path class="st0"
+                    d="M0,0v600h700V0H0z M50,596c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S75.4,596,50,596z M50,496
                     c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S75.4,496,50,496z M50,396c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46
                     S75.4,396,50,396z M50,296c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S75.4,296,50,296z M50,196c-25.4,0-46-20.6-46-46
                     s20.6-46,46-46s46,20.6,46,46S75.4,196,50,196z M50,96C24.6,96,4,75.4,4,50S24.6,4,50,4s46,20.6,46,46S75.4,96,50,96z M150,596
@@ -41,15 +47,16 @@
                     c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S675.4,596,650,596z M650,496c-25.4,0-46-20.6-46-46s20.6-46,46-46
                     s46,20.6,46,46S675.4,496,650,496z M650,396c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S675.4,396,650,396z M650,296
                     c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S675.4,296,650,296z M651,196c-25.4,0-46-20.6-46-46s20.6-46,46-46
-                    s46,20.6,46,46S676.4,196,651,196z M651,96c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S676.4,96,651,96z"/>
+                    s46,20.6,46,46S676.4,196,651,196z M651,96c-25.4,0-46-20.6-46-46s20.6-46,46-46s46,20.6,46,46S676.4,96,651,96z" />
             </g>
-            </svg>
-
-        </div>
-        <div *ngFor="let x of board; let i = index" id="{{i}}" class="col-auto p-0">
-            <div *ngFor="let y of board[0]; let j = index" 
-                id="{{i}}-{{j}}" 
-                class="boardTile" 
-                [ngStyle]="{'background-color': board[i][j].color}">
+        </svg>
+    </div>
+    <div *ngFor="let x of board; let i = index" id="{{i}}" class="col-auto p-0">
+        <div *ngFor="let y of board[0]; let j = index" id="{{i}}-{{j}}" class="boardTile"
+            [ngStyle]="{
+                'background-color': board[i][j].color, 
+                'width.px': innWidth, 
+                'height.px': innWidth
+            }">
         </div>
     </div>

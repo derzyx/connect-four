@@ -1,8 +1,12 @@
 .resetButton{
     position: absolute;
-    top: 25px;
-    left: 25px;
-    width: 50px;
-    height: 50px;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
+}
+
+.turnText{
+    font-family: 'Roboto', sans-serif;
 }

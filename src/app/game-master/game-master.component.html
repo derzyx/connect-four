@@ -1,10 +1,20 @@
-<div class="container-fluid">
+<div class="container-fluid" (window:resize)="onResize($event)">
     <div class="row">
         <div class="col-12">
-            <app-dashboard (reset)="board.onReset(); onReset()" [player]="players[currentPlayer]"></app-dashboard>
+            <app-dashboard 
+                (reset)="board.onReset(); onReset()" 
+                [player]="players[currentPlayer]">
+            </app-dashboard>
         </div>
         <div class="col-12 position-relative">
-            <app-game-board #board (madeMove)="changePlayer($event)" (win)="winTitle($event)" [currentColor]="players[currentPlayer].color"></app-game-board>
+            <p class="m-0 p-0 text-center">drop tokens here</p>
+            <app-game-board 
+                #board 
+                [innWidth]="innWidth"
+                (madeMove)="changePlayer($event)" 
+                (win)="winTitle($event)" 
+                [currentColor]="players[currentPlayer].color">
+            </app-game-board>
         </div>
     </div>
 </div>      

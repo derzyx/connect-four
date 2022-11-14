@@ -11,6 +11,7 @@ import { OnReset } from 'src/app/OnReset';
 export class GameBoardComponent implements OnInit, OnReset {
 
   @Input() currentColor!: string;
+  @Input() innWidth = '';
 
   @Output() madeMove = new EventEmitter<boolean>();
   @Output() win = new EventEmitter<boolean>();
@@ -23,6 +24,7 @@ export class GameBoardComponent implements OnInit, OnReset {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.innWidth)
     this.board = Array(this.columns).fill(Array(this.rows).fill(''));
 
     for(let i = 0; i < this.columns; i++){
@@ -108,6 +110,7 @@ export class GameBoardComponent implements OnInit, OnReset {
     }
   }
 
+  // sets class for each token drop position
   setBorderClass(isFirst: boolean, isLast: boolean ): string {
     if(isFirst) return 'first';
     else if(isLast) return 'last';

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { GameColors, Player } from './player';
 import { GameBoardComponent } from './game-board/game-board.component';
 import { OnReset } from '../OnReset';
@@ -9,6 +9,11 @@ import { OnReset } from '../OnReset';
   styleUrls: ['./game-master.component.css']
 })
 export class GameMasterComponent implements OnInit, OnReset {
+[x: string]: any;
+
+  @HostListener('window', ['$event'])
+
+  innWidth = '';
 
   allTokens = 42;
   hasWon = false;
@@ -36,6 +41,14 @@ export class GameMasterComponent implements OnInit, OnReset {
   constructor() { }
 
   ngOnInit(): void {
+    if(innerWidth < 700){
+      let num: unknown = innerWidth / 7;
+      this.innWidth = <string>num;
+    }    
+    else{
+      this.innWidth = '100';
+    }
+    console.log(this.innWidth)
     this.players[this.currentPlayer].hasTurn = true;
   }
 
@@ -86,5 +99,15 @@ export class GameMasterComponent implements OnInit, OnReset {
     this.players.forEach(player => {
       player.hasWon = false;
     });
+  }
+
+  onResize(event: any){
+    if(innerWidth < 700){
+      let num: unknown = innerWidth / 7;
+      this.innWidth = <string>num;
+    }
+    else{
+      this.innWidth = '100';
+    }
   }
 }

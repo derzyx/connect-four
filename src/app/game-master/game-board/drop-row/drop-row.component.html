@@ -1,5 +1,5 @@
 <div [id]="elId"
-     class="selectRowTile" 
-     [ngClass]="borderClass"
+     class="selectRowTile {{borderClass}}" 
+     [ngStyle]="{'width.px': innWidth, 'height.px': innWidth}"
      (click)="selectCol(elId)">
 </div>
